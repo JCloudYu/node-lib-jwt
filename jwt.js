@@ -11,6 +11,18 @@
 	const __algs = {};
 	module.exports = tiiny.ImprintProperties({}, {
 		Base64Url:B64URL,
+		sign: (alg, data, secret)=> {
+			if ( alg === 'NONE' ) return '';
+			
+			__algs[alg] = __algs[alg] || JWA(alg);
+			return __algs[alg].sign(data, secret);
+		},
+		verify: (alg, data, signature, secret)=>{
+			if ( alg === 'NONE' ) return true;
+			
+			__algs[alg] = __algs[alg] || JWA(alg);
+			return __algs[alg].verify(data, signature, secret);
+		},
 		parse: (token)=>{
 			let parts = token.split('.');
 			if ( parts.length < 2 ) {
@@ -47,12 +59,6 @@
 					signature
 				}
 			};
-		},
-		sign: (alg, data, secret)=> {
-			if ( alg === 'NONE' ) return '';
-			
-			__algs[alg] = __algs[alg] || JWA(alg);
-			return __algs[alg].sign(data, secret);
 		},
 		genToken: (header, payload, secret)=>{
 			let alg = header.alg;
