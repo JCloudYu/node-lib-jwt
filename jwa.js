@@ -19,7 +19,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
 */
 
 var bufferEqual = require('buffer-equal-constant-time');
-var base64url = require('./base64url/base64url');
+var base64url = require('./b64url');
 var Buffer = require('safe-buffer').Buffer;
 var crypto = require('crypto');
 var formatEcdsa = require('ecdsa-sig-formatter');
