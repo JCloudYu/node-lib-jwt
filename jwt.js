@@ -7,8 +7,9 @@
 	
 	
 	const objDefSyntax = /^{.*}$/;
-	const __algs = {};
-	Object.defineProperties(module.exports = {}, {
+	const __algs  = {};
+	const exports = {};
+	Object.defineProperties(exports, {
 		Base64Url:{
 			value:B64URL,
 			writable:false,
@@ -97,4 +98,5 @@
 			enumerable:true
 		}
 	});
+	module.exports = exports;
 })();
