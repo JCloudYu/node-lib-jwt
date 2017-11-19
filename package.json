@@ -1,6 +1,6 @@
 {
 	"name": "lib-jwt",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "The JWT utility library",
 	"main": "jwt.js",
 	"scripts": {

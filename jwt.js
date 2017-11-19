@@ -40,7 +40,7 @@
 		},
 		parse: {
 			value:(token)=>{
-				let parts = token.split('.');
+				let parts = (token||'').split('.');
 				if ( parts.length < 2 ) {
 					return null;
 				}
